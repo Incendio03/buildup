@@ -93,11 +93,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
-              className="data-[slot=sidebar-menu-button]:!p-1.5"
+              className="data-[slot=sidebar-menu-button]:!p-1.5 hover:bg-transparent cursor-default"
             >
-              <a href="#">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">BuildUp</span>
+              <a href="/dashboard">
+                <IconInnerShadowTop className="!size-5 text-primary" />
+                <span className="text-base text-primary font-semibold">
+                  BuildUp
+                </span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

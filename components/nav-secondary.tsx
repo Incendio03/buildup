@@ -37,6 +37,15 @@ export function NavSecondary({
           ))}
         </SidebarMenu>
       </SidebarGroupContent>
+      <p className="mt-5 ml-2 text-xs text-[#e0e0e0] font-thin opacity-60">
+        <a
+          href="https://github.com/Incendio03"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Developed By: @Incendio03
+        </a>
+      </p>
     </SidebarGroup>
   );
 }
