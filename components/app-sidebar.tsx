@@ -31,14 +31,14 @@ const data = {
   navMain: [
     {
       title: "Home",
-      url: "#",
+      url: "/dashboard",
       icon: IconHome,
     },
   ],
   maya: [
     {
       name: "Savings",
-      url: "#",
+      url: "/dashboard/maya-savings",
       icon: IconPigMoney,
     },
     {

@@ -1,25 +1,9 @@
-import { AppSidebar } from "@/components/app-sidebar";
-import { SiteHeader } from "@/components/site-header";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { Button } from "@/components/ui/button";
-
-export default function Page() {
+export default function DashboardPage() {
   return (
-    <SidebarProvider
-      style={
-        {
-          "--sidebar-width": "calc(var(--spacing) * 72)",
-          "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
-      }
-    >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <SiteHeader />
-        <div className="flex flex-1 flex-col bg-bg">
-          <div className="@container/main flex flex-1 flex-col gap-2"></div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+    <div>
+      <h1 className="text-2xl font-bold">Dashboard Home</h1>
+      <p>Welcome to BuildUp</p>
+    </div>
   );
 }
+ 
