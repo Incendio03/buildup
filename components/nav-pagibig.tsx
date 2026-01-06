@@ -25,7 +25,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 
-export function NavMaribank({
+export function NavPagibig({
   items,
 }: {
   items: {
@@ -38,7 +38,7 @@ export function NavMaribank({
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>MariBank</SidebarGroupLabel>
+      <SidebarGroupLabel>Pag-IBIG</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>

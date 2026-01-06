@@ -2,25 +2,19 @@
 
 import * as React from "react";
 import {
-  IconCamera,
-  IconChartBar,
-  IconDashboard,
-  IconDatabase,
-  IconFileAi,
-  IconFileDescription,
-  IconFileWord,
-  IconFolder,
-  IconHelp,
+  IconBug,
+  IconCalendarStats,
+  IconCashBanknoteHeart,
+  IconGolf,
+  IconHome,
   IconInnerShadowTop,
-  IconListDetails,
-  IconReport,
-  IconSearch,
-  IconSettings,
-  IconUsers,
+  IconPigMoney,
+  IconUserQuestion,
 } from "@tabler/icons-react";
 
 import { NavMaribank } from "@/components/nav-maribank";
 import { NavMaya } from "@/components/nav-maya";
+import { NavPagibig } from "./nav-pagibig";
 import { NavMain } from "@/components/nav-main";
 import { NavSecondary } from "@/components/nav-secondary";
 import {
@@ -34,110 +28,59 @@ import {
 } from "@/components/ui/sidebar";
 
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
-      title: "Maya Savings",
+      title: "Home",
       url: "#",
-      icon: IconDashboard,
-    },
-    {
-      title: "Time Deposit",
-      url: "#",
-      icon: IconListDetails,
-    },
-    {
-      title: "Personal Goals",
-      url: "#",
-      icon: IconChartBar,
-    },
-  ],
-  navClouds: [
-    {
-      title: "Capture",
-      icon: IconCamera,
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
-      icon: IconFileDescription,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Prompts",
-      icon: IconFileAi,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  navSecondary: [
-    {
-      title: "Bug/Problem Reports",
-      url: "#",
-      icon: IconSettings,
-    },
-    {
-      title: "Suggestions",
-      url: "#",
-      icon: IconHelp,
+      icon: IconHome,
     },
   ],
   maya: [
     {
       name: "Savings",
       url: "#",
-      icon: IconDatabase,
+      icon: IconPigMoney,
     },
     {
       name: "Time Deposit",
       url: "#",
-      icon: IconDatabase,
+      icon: IconCalendarStats,
     },
     {
-      name: "Personal Goal",
+      name: "Personal Goals",
       url: "#",
-      icon: IconDatabase,
+      icon: IconGolf,
     },
   ],
   maribank: [
     {
       name: "Savings",
       url: "#",
-      icon: IconDatabase,
+      icon: IconPigMoney,
+    },
+  ],
+  pagibig: [
+    {
+      name: "Mp2 Savings",
+      url: "#",
+      icon: IconPigMoney,
+    },
+  ],
+  navSecondary: [
+    {
+      title: "Feedback",
+      url: "#",
+      icon: IconUserQuestion,
+    },
+    {
+      title: "Donations",
+      url: "#",
+      icon: IconCashBanknoteHeart,
+    },
+    {
+      title: "Bug/Problem Reports",
+      url: "#",
+      icon: IconBug,
     },
   ],
 };
@@ -164,6 +107,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} />
         <NavMaya items={data.maya} />
         <NavMaribank items={data.maribank} />
+        <NavPagibig items={data.pagibig} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter></SidebarFooter>
