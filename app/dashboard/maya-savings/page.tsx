@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, parseNumber, parsePercentage } from "@/lib/utils";
 
 export default function SavingsPage() {
   const [accountBalance, setAccountBalance] = useState("");
@@ -14,8 +14,8 @@ export default function SavingsPage() {
 
   const calculateInterest = (days: number) => {
     const baseInterest = 3.5;
-    const balance = parseFloat(accountBalance) || 0;
-    const totalRate = parseFloat(totalInterestRate) || baseInterest;
+    const balance = parseNumber(accountBalance) || 0;
+    const totalRate = parsePercentage(totalInterestRate) || baseInterest;
 
     const grossInterest = (balance * totalRate * days) / (365 * 100);
     const tax = grossInterest * 0.2;
@@ -26,7 +26,7 @@ export default function SavingsPage() {
 
   const getBoostedRate = () => {
     const baseInterest = 3.5;
-    const totalRate = parseFloat(totalInterestRate) || baseInterest;
+    const totalRate = parsePercentage(totalInterestRate) || baseInterest;
     const boosted = totalRate - baseInterest;
     return boosted >= 0 ? boosted.toFixed(1) : "0.0";
   };
@@ -42,7 +42,7 @@ export default function SavingsPage() {
           <Input
             inputMode="numeric"
             value={accountBalance}
-            placeholder="10,000"
+            placeholder="10,000.00"
             onChange={(e) => {
               setAccountBalance(e.target.value);
             }}
@@ -60,7 +60,10 @@ export default function SavingsPage() {
               setShowError(false);
             }}
             onBlur={() => {
-              if (totalInterestRate && parseFloat(totalInterestRate) < 3.5) {
+              if (
+                totalInterestRate &&
+                parsePercentage(totalInterestRate) < 3.5
+              ) {
                 setShowError(true);
               }
             }}
@@ -83,7 +86,7 @@ export default function SavingsPage() {
         </Label>
         <Label className="font-bold text-lg">
           Total Interest Rate:{" "}
-          {Math.max(parseFloat(totalInterestRate) || 3.5, 3.5)}%
+          {Math.max(parsePercentage(totalInterestRate) || 3.5, 3.5)}%
         </Label>
       </div>
 

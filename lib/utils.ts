@@ -12,3 +12,15 @@ export function formatCurrency(value: string | number) {
     maximumFractionDigits: 2,
   });
 }
+
+export function parseNumber(value: string): number {
+  // Remove commas and non-numeric characters except decimal point and minus
+  const cleaned = value.replace(/,/g, "").replace(/[^\d.-]/g, "");
+  return parseFloat(cleaned) || 0;
+}
+
+export function parsePercentage(value: string): number {
+  // Remove % symbol, commas, and parse
+  const cleaned = value.replace(/[,%]/g, "").trim();
+  return parseFloat(cleaned) || 0;
+}
