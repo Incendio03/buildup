@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { formatCurrency } from "@/lib/utils";
 
 export default function SavingsPage() {
   const [accountBalance, setAccountBalance] = useState("");
@@ -16,9 +17,11 @@ export default function SavingsPage() {
     const balance = parseFloat(accountBalance) || 0;
     const totalRate = parseFloat(totalInterestRate) || baseInterest;
 
-    const interest = (balance * totalRate * days) / (365 * 100);
+    const grossInterest = (balance * totalRate * days) / (365 * 100);
+    const tax = grossInterest * 0.2;
+    const netInterest = grossInterest - tax;
 
-    return interest.toFixed(2);
+    return netInterest.toFixed(2);
   };
 
   const getBoostedRate = () => {
@@ -90,7 +93,7 @@ export default function SavingsPage() {
             <CardTitle>1 Day</CardTitle>
           </CardHeader>
           <CardContent>
-            <h2>Interest Amount Here</h2>
+            <h2>₱{formatCurrency(calculateInterest(1))}</h2>
           </CardContent>
         </Card>
         <Card>
@@ -98,7 +101,7 @@ export default function SavingsPage() {
             <CardTitle>30 Days</CardTitle>
           </CardHeader>
           <CardContent>
-            <h2>Interest Amount Here</h2>
+            <h2>₱{formatCurrency(calculateInterest(30))}</h2>
           </CardContent>
         </Card>
         <Card>
@@ -106,7 +109,7 @@ export default function SavingsPage() {
             <CardTitle>1 Year</CardTitle>
           </CardHeader>
           <CardContent>
-            <h2>Interest Amount Here</h2>
+            <h2>₱{formatCurrency(calculateInterest(365))}</h2>
           </CardContent>
         </Card>
       </div>
