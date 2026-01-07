@@ -65,8 +65,8 @@ export default function SavingsPage() {
           {showError && (
             <Alert className="mt-2" variant="destructive">
               <AlertDescription>
-                Maya has a base interest of 3.5%. Total Interest Rate should not
-                be lower than 3.5%.
+                Maya’s base interest rate is 3.5%. The total interest rate must
+                not be less than 3.5%.
               </AlertDescription>
             </Alert>
           )}
@@ -79,7 +79,8 @@ export default function SavingsPage() {
           Boosted Interest Rate: {getBoostedRate() || 0}%
         </Label>
         <Label className="font-bold text-lg">
-          Total Interest Rate: {totalInterestRate || 3.5}%
+          Total Interest Rate:{" "}
+          {Math.max(parseFloat(totalInterestRate) || 3.5, 3.5)}%
         </Label>
       </div>
 
