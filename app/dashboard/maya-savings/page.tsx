@@ -4,10 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function SavingsPage() {
   const [accountBalance, setAccountBalance] = useState("");
   const [totalInterestRate, setTotalInterestRate] = useState("3.5");
+  const [showError, setShowError] = useState(false);
 
   const calculateInterest = (days: number) => {
     const baseInterest = 3.5;
@@ -38,7 +40,9 @@ export default function SavingsPage() {
             inputMode="numeric"
             value={accountBalance}
             placeholder="10,000"
-            onChange={(e) => setAccountBalance(e.target.value)}
+            onChange={(e) => {
+              setAccountBalance(e.target.value);
+            }}
           />
         </div>
 
@@ -48,8 +52,24 @@ export default function SavingsPage() {
             inputMode="numeric"
             value={totalInterestRate}
             placeholder="3.5%"
-            onChange={(e) => setTotalInterestRate(e.target.value)}
+            onChange={(e) => {
+              setTotalInterestRate(e.target.value);
+              setShowError(false);
+            }}
+            onBlur={() => {
+              if (totalInterestRate && parseFloat(totalInterestRate) < 3.5) {
+                setShowError(true);
+              }
+            }}
           />
+          {showError && (
+            <Alert className="mt-2" variant="destructive">
+              <AlertDescription>
+                Maya has a base interest of 3.5%. Total Interest Rate should not
+                be lower than 3.5%.
+              </AlertDescription>
+            </Alert>
+          )}
         </div>
       </div>
 
