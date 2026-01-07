@@ -38,29 +38,32 @@ export default function SavingsPage() {
   };
 
   return (
-    <div className="">
+    <div className="space-y-6">
       <h1 className="text-2xl font-bold text-primary">
         Calculate your Maya Savings
       </h1>
-      <div className="mt-10 space-y-5">
-        <div>
-          <Label className="mb-2 font-normal">Enter Account Balance:</Label>
+
+      <div className="space-y-5 max-w-md">
+        <div className="space-y-2">
+          <Label className="text-foreground">Account Balance</Label>
           <Input
             inputMode="numeric"
             value={accountBalance}
             placeholder="10,000.00"
+            className="text-lg"
             onChange={(e) => {
               setAccountBalance(e.target.value);
             }}
           />
         </div>
 
-        <div>
-          <Label className="mb-2 font-normal">Enter Total Interest Rate:</Label>
+        <div className="space-y-2">
+          <Label className="text-foreground">Total Interest Rate</Label>
           <Input
             inputMode="numeric"
             value={totalInterestRate}
             placeholder="3.5%"
+            className="text-lg"
             onChange={(e) => {
               setTotalInterestRate(e.target.value);
               setShowError(false);
@@ -77,7 +80,7 @@ export default function SavingsPage() {
           {showError && (
             <Alert className="mt-2" variant="destructive">
               <AlertDescription>
-                Maya’s base interest rate is 3.5%. The total interest rate must
+                Maya's base interest rate is 3.5%. The total interest rate must
                 not be less than 3.5%.
               </AlertDescription>
             </Alert>
@@ -85,28 +88,51 @@ export default function SavingsPage() {
         </div>
       </div>
 
-      <div className="mt-5">
-        <Label className="font-light text-sm">Base Interest Rate: 3.5%</Label>
-        <Label className="font-light text-sm">
-          Boosted Interest Rate: {calculateAllInterest(1).boostedRate}%
-        </Label>
-        <Label className="font-bold text-lg">
-          Total Interest Rate:{" "}
-          {Math.max(parsePercentage(totalInterestRate) || 3.5, 3.5)}%
-        </Label>
-      </div>
+      <Card className="mt-5 bg-transparent border-foreground">
+        <CardHeader>
+          <CardTitle className="text-lg text-foreground">
+            Interest Rate Breakdown
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="space-y-1">
+              <p className="text-xs text-foreground uppercase tracking-wide">
+                Base Rate
+              </p>
+              <p className="text-2xl font-bold text-foreground">3.5%</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-xs text-foreground uppercase tracking-wide">
+                Boosted Rate
+              </p>
+              <p className="text-2xl font-bold text-primary">
+                {calculateAllInterest(1).boostedRate}%
+              </p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-xs text-foreground uppercase tracking-wide">
+                Total Rate
+              </p>
+              <p className="text-2xl font-bold text-foreground">
+                {Math.max(parsePercentage(totalInterestRate) || 3.5, 3.5)}%
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-      <Separator orientation="horizontal" className="bg-primary mt-2" />
-
-      <div className="flex-row mt-5">
-        <Label className="font-semibold">
-          Your total net interest (Net Base Interest + Net Boosted Interest):
-        </Label>
+      <div className="flex-row mt-8">
+        <h2 className="text-xl font-semibold mb-2">Interest Projections</h2>
+        <p className="text-sm text-muted-foreground mb-5">
+          View your estimated net interest earnings over different time periods
+          (after 20% tax deduction)
+        </p>
 
         <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card className="border-2 hover:border-primary transition-colors">
             <CardHeader className="pb-3">
-              <CardTitle className="text-primary">1 Day</CardTitle>
+              <CardTitle className="text-bg">1 Day</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
@@ -141,7 +167,7 @@ export default function SavingsPage() {
 
           <Card className="border-2 hover:border-primary transition-colors">
             <CardHeader className="pb-3">
-              <CardTitle className="text-primary">30 Days</CardTitle>
+              <CardTitle className="text-bg">30 Days</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
@@ -176,7 +202,7 @@ export default function SavingsPage() {
 
           <Card className="border-2 hover:border-primary transition-colors">
             <CardHeader className="pb-3">
-              <CardTitle className="text-primary">1 Year</CardTitle>
+              <CardTitle className="text-bg">1 Year</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
