@@ -3,18 +3,28 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function SavingsPage() {
-  const [totalInterestRate, setTotalInterestRate] = useState(0);
+  const [accountBalance, setAccountBalance] = useState("");
+  const [totalInterestRate, setTotalInterestRate] = useState("3.5");
+
+  const calculateInterest = (days: number) => {
+    const baseInterest = 3.5;
+    const balance = parseFloat(accountBalance) || 0;
+    const totalRate = parseFloat(totalInterestRate) || baseInterest;
+
+    const interest = (balance * totalRate * days) / (365 * 100);
+
+    return interest.toFixed(2);
+  };
+
+  const getBoostedRate = () => {
+    const baseInterest = 3.5;
+    const totalRate = parseFloat(totalInterestRate) || baseInterest;
+    const boosted = totalRate - baseInterest;
+    return boosted >= 0 ? boosted.toFixed(1) : "0.0";
+  };
 
   return (
     <div className="s">
@@ -24,24 +34,36 @@ export default function SavingsPage() {
       <div className="mt-10 space-y-5">
         <div>
           <Label className="mb-2 font-normal">Enter Account Balance:</Label>
-          <Input placeholder="10,000" />
+          <Input
+            inputMode="numeric"
+            value={accountBalance}
+            placeholder="10,000"
+            onChange={(e) => setAccountBalance(e.target.value)}
+          />
         </div>
 
         <div>
-          <Label className="mb-2 font-normal">
-            Enter Total Boosted Interest Rate:
-          </Label>
-          <Input placeholder="5%" />
+          <Label className="mb-2 font-normal">Enter Total Interest Rate:</Label>
+          <Input
+            inputMode="numeric"
+            value={totalInterestRate}
+            placeholder="3.5%"
+            onChange={(e) => setTotalInterestRate(e.target.value)}
+          />
         </div>
       </div>
 
       <div className="mt-5">
+        <Label className="font-light text-sm">Base Interest Rate: 3.5%</Label>
+        <Label className="font-light text-sm">
+          Boosted Interest Rate: {getBoostedRate() || 0}%
+        </Label>
         <Label className="font-bold text-lg">
-          Total Interest Rate: {totalInterestRate}%
+          Total Interest Rate: {totalInterestRate || 3.5}%
         </Label>
       </div>
 
-      <div className="flex gap-4">
+      <div className="mt-5 flex gap-4">
         <Card>
           <CardHeader>
             <CardTitle>1 Day</CardTitle>
