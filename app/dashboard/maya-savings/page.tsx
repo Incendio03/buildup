@@ -102,63 +102,111 @@ export default function SavingsPage() {
         <Label className="font-semibold">
           Your total net interest (Net Base Interest + Net Boosted Interest):
         </Label>
-        <div className="mt-5 flex gap-4">
-          <Card className="p-3">
-            <CardHeader>
-              <CardTitle>1 Day</CardTitle>
+
+        <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card className="border-2 hover:border-primary transition-colors">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-primary">1 Day</CardTitle>
             </CardHeader>
-            <CardContent>
-              <h2>₱{formatCurrency(calculateAllInterest(1).total)}</h2>
+            <CardContent className="space-y-4">
+              <div>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
+                  Total Net Interest
+                </p>
+                <h2 className="text-3xl font-bold text-bg">
+                  ₱{formatCurrency(calculateAllInterest(1).total)}
+                </h2>
+              </div>
+
+              <Separator className="bg-bg/20" />
+
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">Base Interest</span>
+                  <span className="font-semibold">
+                    ₱{formatCurrency(calculateAllInterest(1).base)}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">
+                    Boosted Interest
+                  </span>
+                  <span className="font-semibold">
+                    ₱{formatCurrency(calculateAllInterest(1).boosted)}
+                  </span>
+                </div>
+              </div>
             </CardContent>
-            <Separator orientation="horizontal" className="bg-bg mt-2" />
-            <div className="mt-2">
-              <Label className="block font-normal text-sm">
-                <span className="font-bold">Net Base Interest:</span> ₱
-                {formatCurrency(calculateAllInterest(1).base)}
-              </Label>
-              <Label className="font-normal text-sm mt-1">
-                <span className="font-bold">Net Boosted Interest:</span> ₱
-                {formatCurrency(calculateAllInterest(1).boosted)}
-              </Label>
-            </div>
           </Card>
-          <Card className="p-3">
-            <CardHeader>
-              <CardTitle>30 Days</CardTitle>
+
+          <Card className="border-2 hover:border-primary transition-colors">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-primary">30 Days</CardTitle>
             </CardHeader>
-            <CardContent>
-              <h2>₱{formatCurrency(calculateAllInterest(30).total)}</h2>
+            <CardContent className="space-y-4">
+              <div>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
+                  Total Net Interest
+                </p>
+                <h2 className="text-3xl font-bold text-bg">
+                  ₱{formatCurrency(calculateAllInterest(30).total)}
+                </h2>
+              </div>
+
+              <Separator className="bg-bg/20" />
+
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">Base Interest</span>
+                  <span className="font-semibold">
+                    ₱{formatCurrency(calculateAllInterest(30).base)}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">
+                    Boosted Interest
+                  </span>
+                  <span className="font-semibold">
+                    ₱{formatCurrency(calculateAllInterest(30).boosted)}
+                  </span>
+                </div>
+              </div>
             </CardContent>
-            <Separator orientation="horizontal" className="bg-bg mt-2" />
-            <div className="mt-2">
-              <Label className="font-normal text-sm">
-                <span className="font-bold">Net Base Interest:</span> ₱
-                {formatCurrency(calculateAllInterest(30).base)}
-              </Label>
-              <Label className="font-normal text-sm mt-1">
-                <span className="font-bold">Net Boosted Interest:</span> ₱
-                {formatCurrency(calculateAllInterest(30).boosted)}
-              </Label>
-            </div>
           </Card>
-          <Card className="p-3">
-            <CardHeader>
-              <CardTitle>1 Year</CardTitle>
+
+          <Card className="border-2 hover:border-primary transition-colors">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-primary">1 Year</CardTitle>
             </CardHeader>
-            <CardContent>
-              <h2>₱{formatCurrency(calculateAllInterest(365).total)}</h2>
+            <CardContent className="space-y-4">
+              <div>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
+                  Total Net Interest
+                </p>
+                <h2 className="text-3xl font-bold text-bg">
+                  ₱{formatCurrency(calculateAllInterest(365).total)}
+                </h2>
+              </div>
+
+              <Separator className="bg-bg/20" />
+
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">Base Interest</span>
+                  <span className="font-semibold">
+                    ₱{formatCurrency(calculateAllInterest(365).base)}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">
+                    Boosted Interest
+                  </span>
+                  <span className="font-semibold">
+                    ₱{formatCurrency(calculateAllInterest(365).boosted)}
+                  </span>
+                </div>
+              </div>
             </CardContent>
-            <Separator orientation="horizontal" className="bg-bg mt-2" />
-            <div className="mt-2">
-              <Label className="font-normal text-sm">
-                <span className="font-bold">Net Base Interest:</span> ₱
-                {formatCurrency(calculateAllInterest(365).base)}
-              </Label>
-              <Label className="font-normal text-sm mt-1">
-                <span className="font-bold">Net Boosted Interest:</span> ₱
-                {formatCurrency(calculateAllInterest(365).boosted)}
-              </Label>
-            </div>
           </Card>
         </div>
       </div>
