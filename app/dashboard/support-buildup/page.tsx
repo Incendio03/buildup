@@ -119,6 +119,12 @@ export default function SupportBuildup() {
           }
         />
       </div>
+
+      <div className="text-center pt-16 pb-8">
+        <p className="text-muted-foreground text-sm">
+          Thank you for your support!
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 interface FlipCardProps {
   frontTitle?: string;
@@ -21,9 +23,20 @@ export function FlipCard({
   width = "w-[190px]",
   height = "h-[254px]",
 }: FlipCardProps) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   return (
-    <div className={`group ${width} ${height} [perspective:1000px]`}>
-      <div className="relative w-full h-full text-center transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+    <div
+      className={`group ${width} ${height} [perspective:1000px] cursor-pointer`}
+      onClick={() => setIsFlipped(!isFlipped)}
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div
+        className={`relative w-full h-full text-center transition-transform duration-700 [transform-style:preserve-3d] ${
+          isFlipped ? "[transform:rotateY(180deg)]" : ""
+        }`}
+      >
         {/* Front */}
         <div className="absolute flex flex-col justify-center items-center w-full h-full shadow-lg border-2 border-foreground rounded-2xl bg-secondary text-foreground [backface-visibility:hidden]">
           {frontContent || (
