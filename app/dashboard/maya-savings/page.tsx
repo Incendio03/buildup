@@ -54,15 +54,20 @@ export default function SavingsPage() {
       <div className="space-y-5 max-w-md">
         <div className="space-y-2">
           <Label className="text-foreground">Account Balance</Label>
-          <Input
-            inputMode="numeric"
-            value={accountBalance}
-            placeholder="10,000.00"
-            className="text-lg"
-            onChange={(e) => {
-              setAccountBalance(e.target.value);
-            }}
-          />
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground">
+              ₱
+            </span>
+            <Input
+              inputMode="numeric"
+              value={accountBalance}
+              placeholder="10,000.00"
+              className="text-lg pl-8"
+              onChange={(e) => {
+                setAccountBalance(e.target.value);
+              }}
+            />
+          </div>
         </div>
 
         <div className="space-y-2">

@@ -73,8 +73,8 @@ const data = {
       icon: IconUserQuestion,
     },
     {
-      title: "Donations",
-      url: "#",
+      title: "Support BuildUp",
+      url: "/dashboard/support-buildup",
       icon: IconCashBanknoteHeart,
     },
     {
