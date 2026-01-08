@@ -19,11 +19,19 @@ export default function SavingsPage() {
     const totalRate = parsePercentage(totalInterestRate) || baseInterest;
     const boostedRate = Math.max(totalRate - baseInterest, 0);
 
-    const grossBase = (balance * baseInterest * days) / (365 * 100);
+    const boostedCap = 100000;
+    const boostedBalance = Math.min(balance, boostedCap);
+
+    // Daily compound interest formula: P × [(1 + r/365)^days - 1]
+    // Base interest on entire balance
+    const grossBase =
+      balance * (Math.pow(1 + baseInterest / (365 * 100), days) - 1);
     const taxBase = grossBase * 0.2;
     const netBase = grossBase - taxBase;
 
-    const grossBoosted = (balance * boostedRate * days) / (365 * 100);
+    // Boosted interest on capped balance
+    const grossBoosted =
+      boostedBalance * (Math.pow(1 + boostedRate / (365 * 100), days) - 1);
     const taxBoosted = grossBoosted * 0.2;
     const netBoosted = grossBoosted - taxBoosted;
 
