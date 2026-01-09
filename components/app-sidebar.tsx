@@ -43,7 +43,7 @@ const data = {
     },
     {
       name: "Time Deposit",
-      url: "#",
+      url: "/dashboard/maya-time-deposit",
       icon: IconCalendarStats,
     },
     {
