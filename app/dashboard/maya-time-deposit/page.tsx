@@ -15,6 +15,8 @@ import { useState } from "react";
 
 export default function MayaTimeDeposit() {
   const [depositedAmount, setDepositedAmount] = useState("");
+  const [targetAmount, setTargetAmount] = useState("");
+  const [depositTerm, setDepositTerm] = useState("");
 
   return (
     <div className="space-y-6">
@@ -48,17 +50,17 @@ export default function MayaTimeDeposit() {
               </span>
               <Input
                 inputMode="numeric"
-                value={depositedAmount}
+                value={targetAmount}
                 placeholder="30,000.00"
                 className="text-lg pl-8"
-                onChange={(e) => setDepositedAmount(e.target.value)}
+                onChange={(e) => setTargetAmount(e.target.value)}
               />
             </div>
           </div>
 
           <div className="w-[180px] space-y-2">
             <Label className="text-foreground">Select Term</Label>
-            <Select>
+            <Select value={depositTerm} onValueChange={setDepositTerm}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="3 Months" />
               </SelectTrigger>
