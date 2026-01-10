@@ -161,14 +161,16 @@ export default function SavingsPage() {
 
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Base Interest</span>
+                  <span className="text-muted-foreground">
+                    Net Base Interest
+                  </span>
                   <span className="font-semibold">
                     ₱{formatCurrency(calculateAllInterest(1).base)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">
-                    Boosted Interest
+                    Net Boosted Interest
                   </span>
                   <span className="font-semibold">
                     ₱{formatCurrency(calculateAllInterest(1).boosted)}
@@ -196,14 +198,16 @@ export default function SavingsPage() {
 
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Base Interest</span>
+                  <span className="text-muted-foreground">
+                    Net Base Interest
+                  </span>
                   <span className="font-semibold">
                     ₱{formatCurrency(calculateAllInterest(30).base)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">
-                    Boosted Interest
+                    Net Boosted Interest
                   </span>
                   <span className="font-semibold">
                     ₱{formatCurrency(calculateAllInterest(30).boosted)}
@@ -231,14 +235,16 @@ export default function SavingsPage() {
 
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Base Interest</span>
+                  <span className="text-muted-foreground">
+                    Net Base Interest
+                  </span>
                   <span className="font-semibold">
                     ₱{formatCurrency(calculateAllInterest(365).base)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">
-                    Boosted Interest
+                    Net Boosted Interest
                   </span>
                   <span className="font-semibold">
                     ₱{formatCurrency(calculateAllInterest(365).boosted)}
