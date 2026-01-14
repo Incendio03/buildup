@@ -48,7 +48,7 @@ const data = {
     },
     {
       name: "Personal Goals",
-      url: "#",
+      url: "/dashboard/maya-personal-goals",
       icon: IconGolf,
     },
   ],
