@@ -55,7 +55,7 @@ export default function SavingsPage() {
         <div className="space-y-2">
           <Label className="text-foreground">Account Balance</Label>
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-bg">
               ₱
             </span>
             <Input

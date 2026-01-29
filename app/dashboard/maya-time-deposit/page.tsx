@@ -103,7 +103,7 @@ export default function MayaTimeDeposit() {
           <div className="flex-1 space-y-2">
             <Label>Deposited Amount</Label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-bg">
                 ₱
               </span>
               <Input
@@ -119,7 +119,7 @@ export default function MayaTimeDeposit() {
           <div className="flex-1 space-y-2">
             <Label>Target Amount</Label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-bg">
                 ₱
               </span>
               <Input
@@ -229,7 +229,7 @@ export default function MayaTimeDeposit() {
                   <span className="font-semibold">
                     ₱
                     {formatCurrency(
-                      parseNumber(depositedAmount) + results.baseOnlyInterest
+                      parseNumber(depositedAmount) + results.baseOnlyInterest,
                     )}
                   </span>
                 </div>
@@ -264,7 +264,7 @@ export default function MayaTimeDeposit() {
                   <span className="font-semibold">
                     ₱
                     {formatCurrency(
-                      results.hasReachedTarget ? results.baseOnlyInterest : 0
+                      results.hasReachedTarget ? results.baseOnlyInterest : 0,
                     )}
                   </span>
                 </div>
@@ -290,7 +290,7 @@ export default function MayaTimeDeposit() {
                       results.hasReachedTarget
                         ? parseNumber(depositedAmount) +
                             (results.boostedInterest || 0)
-                        : 0
+                        : 0,
                     )}
                   </span>
                 </div>
