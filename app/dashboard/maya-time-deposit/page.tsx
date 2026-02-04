@@ -11,13 +11,19 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { IconInfoCircle } from "@tabler/icons-react";
 import { useState } from "react";
 import { formatCurrency, parseNumber } from "@/lib/utils";
 
 export default function MayaTimeDeposit() {
   const [depositedAmount, setDepositedAmount] = useState("");
   const [targetAmount, setTargetAmount] = useState("");
-  const [depositTerm, setDepositTerm] = useState("");
+  const [depositTerm, setDepositTerm] = useState("3");
 
   const calculateAllInterest = () => {
     const deposit = parseNumber(depositedAmount);
@@ -239,9 +245,20 @@ export default function MayaTimeDeposit() {
 
           <Card className="border-2 hover:border-primary transition-colors">
             <CardHeader className="pb-3">
-              <CardTitle className="text-bg">
+              <CardTitle className="text-bg flex items-center gap-2">
                 {depositTerm ? depositTerm : "3"} Months (With Boosted Interest
                 Rate)
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span className="inline-flex items-center">
+                      <IconInfoCircle className="w-4 h-4" />
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent className="max-w-xs">
+                    Actual value may vary based on when target amount is
+                    reached. Calculation assumes full term with boost.
+                  </TooltipContent>
+                </Tooltip>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
