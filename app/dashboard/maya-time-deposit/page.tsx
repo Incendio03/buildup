@@ -199,9 +199,9 @@ export default function MayaTimeDeposit() {
         </p>
 
         <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="border-2 hover:border-primary transition-colors">
+          <Card className="border-2 border-primary bg-primary/5">
             <CardHeader className="pb-3">
-              <CardTitle className="text-bg">
+              <CardTitle className="text-lg flex text-foreground">
                 {depositTerm ? depositTerm : "3"} Months (If Base Interest only)
               </CardTitle>
             </CardHeader>
@@ -210,7 +210,7 @@ export default function MayaTimeDeposit() {
                 <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
                   Total Net Interest
                 </p>
-                <h2 className="text-3xl font-bold text-bg">
+                <h2 className="text-3xl font-bold text-foreground">
                   ₱{formatCurrency(results.baseOnlyInterest)}
                 </h2>
               </div>
@@ -222,7 +222,7 @@ export default function MayaTimeDeposit() {
                   <span className="text-muted-foreground">
                     Net Base Interest
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱{formatCurrency(results.baseOnlyInterest)}
                   </span>
                 </div>
@@ -232,7 +232,7 @@ export default function MayaTimeDeposit() {
                   <span className="text-muted-foreground">
                     Net Boosted Interest
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱
                     {formatCurrency(
                       parseNumber(depositedAmount) + results.baseOnlyInterest,
@@ -243,9 +243,9 @@ export default function MayaTimeDeposit() {
             </CardContent>
           </Card>
 
-          <Card className="border-2 hover:border-primary transition-colors">
+          <Card className="border-2 border-primary bg-primary/5">
             <CardHeader className="pb-3">
-              <CardTitle className="text-bg flex items-center gap-2">
+              <CardTitle className="text-lg flex text-foreground">
                 {depositTerm ? depositTerm : "3"} Months (With Boosted Interest
                 Rate)
                 <Tooltip>
@@ -266,7 +266,7 @@ export default function MayaTimeDeposit() {
                 <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
                   Total Net Interest
                 </p>
-                <h2 className="text-3xl font-bold text-bg">
+                <h2 className="text-3xl font-bold text-foreground">
                   ₱{formatCurrency(results.boostedInterest || 0)}
                 </h2>
               </div>
@@ -278,7 +278,7 @@ export default function MayaTimeDeposit() {
                   <span className="text-muted-foreground">
                     Net Base Interest
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱
                     {formatCurrency(
                       results.hasReachedTarget ? results.baseOnlyInterest : 0,
@@ -291,7 +291,7 @@ export default function MayaTimeDeposit() {
                   <span className="text-muted-foreground">
                     Net Boosted Interest
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱{formatCurrency(results.boostedOnlyInterest)}
                   </span>
                 </div>
@@ -301,7 +301,7 @@ export default function MayaTimeDeposit() {
                   <span className="text-muted-foreground">
                     Total Amount at Maturity
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱
                     {formatCurrency(
                       results.hasReachedTarget
