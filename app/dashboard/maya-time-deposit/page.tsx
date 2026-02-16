@@ -230,7 +230,7 @@ export default function MayaTimeDeposit() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">
-                    Net Boosted Interest
+                    Total Amount at Maturity
                   </span>
                   <span className="font-semibold text-foreground">
                     ₱
@@ -243,7 +243,14 @@ export default function MayaTimeDeposit() {
             </CardContent>
           </Card>
 
-          <Card className="border-2 border-primary bg-primary/5">
+          <Card
+            className={`border-2 ${
+              parseNumber(depositedAmount) >= parseNumber(targetAmount) &&
+              parseNumber(depositedAmount) != 0
+                ? "border-primary bg-primary/5"
+                : "border-muted bg-muted/20 opacity-60"
+            }`}
+          >
             <CardHeader className="pb-3">
               <CardTitle className="text-lg flex text-foreground">
                 {depositTerm ? depositTerm : "3"} Months (With Boosted Interest
