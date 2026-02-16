@@ -230,7 +230,7 @@ export default function MayaTimeDeposit() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">
-                    Net Base Interest
+                    Net Boosted Interest
                   </span>
                   <span className="font-semibold">
                     ₱
