@@ -143,16 +143,16 @@ export default function SavingsPage() {
         </p>
 
         <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="border-2 hover:border-primary transition-colors">
+          <Card className="border-2 border-primary bg-primary/5">
             <CardHeader className="pb-3">
-              <CardTitle className="text-bg">1 Day</CardTitle>
+              <CardTitle className="text-foreground">1 Day</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
                   Total Net Interest
                 </p>
-                <h2 className="text-3xl font-bold text-bg">
+                <h2 className="text-3xl font-bold text-foreground">
                   ₱{formatCurrency(calculateAllInterest(1).total)}
                 </h2>
               </div>
@@ -164,7 +164,7 @@ export default function SavingsPage() {
                   <span className="text-muted-foreground">
                     Net Base Interest
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱{formatCurrency(calculateAllInterest(1).base)}
                   </span>
                 </div>
@@ -172,7 +172,7 @@ export default function SavingsPage() {
                   <span className="text-muted-foreground">
                     Net Boosted Interest
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱{formatCurrency(calculateAllInterest(1).boosted)}
                   </span>
                 </div>
@@ -180,16 +180,16 @@ export default function SavingsPage() {
             </CardContent>
           </Card>
 
-          <Card className="border-2 hover:border-primary transition-colors">
+          <Card className="border-2 border-primary bg-primary/5">
             <CardHeader className="pb-3">
-              <CardTitle className="text-bg">30 Days</CardTitle>
+              <CardTitle className="text-foreground">30 Days</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
                   Total Net Interest
                 </p>
-                <h2 className="text-3xl font-bold text-bg">
+                <h2 className="text-3xl font-bold text-foreground">
                   ₱{formatCurrency(calculateAllInterest(30).total)}
                 </h2>
               </div>
@@ -201,7 +201,7 @@ export default function SavingsPage() {
                   <span className="text-muted-foreground">
                     Net Base Interest
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱{formatCurrency(calculateAllInterest(30).base)}
                   </span>
                 </div>
@@ -209,7 +209,7 @@ export default function SavingsPage() {
                   <span className="text-muted-foreground">
                     Net Boosted Interest
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱{formatCurrency(calculateAllInterest(30).boosted)}
                   </span>
                 </div>
@@ -217,16 +217,16 @@ export default function SavingsPage() {
             </CardContent>
           </Card>
 
-          <Card className="border-2 hover:border-primary transition-colors">
+          <Card className="border-2 border-primary bg-primary/5">
             <CardHeader className="pb-3">
-              <CardTitle className="text-bg">1 Year</CardTitle>
+              <CardTitle className="text-foreground">1 Year</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
                   Total Net Interest
                 </p>
-                <h2 className="text-3xl font-bold text-bg">
+                <h2 className="text-3xl font-bold text-foreground">
                   ₱{formatCurrency(calculateAllInterest(365).total)}
                 </h2>
               </div>
@@ -238,7 +238,7 @@ export default function SavingsPage() {
                   <span className="text-muted-foreground">
                     Net Base Interest
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱{formatCurrency(calculateAllInterest(365).base)}
                   </span>
                 </div>
@@ -246,7 +246,7 @@ export default function SavingsPage() {
                   <span className="text-muted-foreground">
                     Net Boosted Interest
                   </span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     ₱{formatCurrency(calculateAllInterest(365).boosted)}
                   </span>
                 </div>
