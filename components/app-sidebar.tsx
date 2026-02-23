@@ -76,12 +76,7 @@ const data = {
       title: "Support BuildUp",
       url: "/dashboard/support-buildup",
       icon: IconCashBanknoteHeart,
-    },
-    {
-      title: "Bug/Problem Reports",
-      url: "#",
-      icon: IconBug,
-    },
+    }
   ],
 };
 
